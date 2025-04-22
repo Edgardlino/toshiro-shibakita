@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  web:
+    image: meu-nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx-microservico/index.html:/usr/share/nginx/html/index.html
+    networks:
+      - minha-rede
+
+  app:
+    image: meu-php
+    ports:
+      - "8080:80"
+    networks:
+      - minha-rede
+
+networks:
+  minha-rede:
